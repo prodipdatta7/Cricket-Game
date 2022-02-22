@@ -1,0 +1,17 @@
+<div class="toss-container" fxLayout="column" fxLayoutAlign="start center">
+    <div fxLayout="column" fxLayoutAlign="start center">
+        <h1 class="title">Select Who Will Bowl</h1>
+        <!-- <button class="btn-top" mat-raised-button color="primary" (click)="diceRolling()">Roll the dice</button>
+        <h2>{{playingTeams[0].name}} called {{firstTeamsCall}}</h2> -->
+    </div>
+    <div class="options flags" fxLayout="row wrap">
+        <div fxFlex="50" fxLayoutAlign="center center" *ngFor="let country of playingTeams; let i = index;">
+            <div class="teams-info" fxLayout="row" fxLayoutAlign="center center" backgroundColor="color[i]">
+                <mat-radio-button (change)="teamToBowl($event, country.ID)">
+                    <img class="img" src={{country.flag_url}} alt={{country.name}}>
+                </mat-radio-button>
+            </div>
+        </div>
+    </div>
+    <button class="btn-bottom" [disabled]="disabled" mat-raised-button color="primary" (click)="Play()">Lets Play</button>
+</div>

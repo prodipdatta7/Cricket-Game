@@ -1,0 +1,48 @@
+<div fxLayout="column" class="details-container">
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <h1>{{currentMatchRecord.winner}} vs {{currentMatchRecord.looser}}</h1>
+            <h2 style="margin: 0px;">{{currentMatchRecord.Result}}</h2>
+            <p class="layout">Toss: <strong>{{currentMatchRecord.tossWinner}}</strong></p>
+            <p class="layout">Elected to: <strong>{{currentMatchRecord.electedTo}}</strong></p>
+            <p class="layout"><strong>{{currentMatchRecord.winner}}</strong> scored: <strong>{{currentMatchRecord.winnersTotalRun}}</strong></p>
+            <p class="layout"><strong>{{currentMatchRecord.looser}}</strong> scored: <strong>{{currentMatchRecord.loosersTotalRun}}</strong></p>
+            <p class="layout"><strong>DATE: {{currentMatchRecord.toDay | date: 'fullDate'}}</strong></p>
+        </div>
+        <h4 class="score"><a href="matches/{{matchID}}#scorecard">Full Score</a></h4>
+    </div>
+    <div fxLayout="column" class="commentry" id="scorecard">
+        <div fxFlex="100" fxFlexAlign="center">
+            <h1>{{currentMatchRecord.winner}}</h1>
+        </div>
+        <div>
+            <h4 fxFlex="50" style="text-align: center;">Over</h4>
+            <h4 fxFlex="50" style="text-align: center;">Run</h4>
+        </div>
+        <div fxFlex="100" fxLayout="row" fxLayoutAlign="start start" *ngFor="let ball of currentMatchRecord.winnersInnings">
+            <div fxFlex="50" fxLayout="column" fxLayoutAlign="center center" class="tableBorder">
+                {{ball.over}}
+            </div>
+            <div fxFlex="50" fxLayoutAlign="center center" class="tableBorder">
+                {{ball.run}}
+            </div>
+        </div>
+    </div>
+    <div fxLayout="column" class="commentry">
+        <div fxFlex="100" fxFlexAlign="center">
+            <h1>{{currentMatchRecord.looser}}</h1>
+        </div>
+        <div>
+            <h4 fxFlex="50" style="text-align: center;">Over</h4>
+            <h4 fxFlex="50" style="text-align: center;">Run</h4>
+        </div>
+        <div fxFlex="100" fxLayout="row" fxLayoutAlign="start start" *ngFor="let ball of currentMatchRecord.loosersInnings">
+            <div fxFlex="50" fxLayout="column" fxLayoutAlign="center center" class="tableBorder">
+                {{ball.over}}
+            </div>
+            <div fxFlex="50" fxLayoutAlign="center center" class="tableBorder">
+                {{ball.run}}
+            </div>
+        </div>
+    </div>
+</div>

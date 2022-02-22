@@ -1,0 +1,70 @@
+a {
+    text-decoration: none;
+}
+.home-container {
+    margin: 50px 200px;
+    background-color: lightgray;
+    text-align: center;
+}
+
+.instruction {
+    background-color: rgba(138, 43, 226, 0.15);
+    // width: 100%;
+    margin: 50px 200px;
+}
+
+.title {
+    text-align: center;
+}
+
+.card-width {
+    max-width: 250px;
+    margin: 10px;
+}
+
+.teams-info {
+    max-width: 250px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.img {
+    width: 250px;
+    height: 180px;
+    padding: 10px;
+}
+
+.btn-submit {
+    width: 1500px;
+}
+
+.pie-chart {
+    width: 200px !important;
+    height: 200px !important;
+    border-radius: 50%;
+    background-color: lightgray;
+}
+
+.pie-chart2 {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.greeting {
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.button {
+    background-color: #3F51B5;
+    border-radius: 4px;
+    color: #fff;
+    padding: 4px 8px 6px 8px;
+}
+
+#rules {
+    padding: 8px;
+}

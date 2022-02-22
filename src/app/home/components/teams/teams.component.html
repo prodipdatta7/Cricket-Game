@@ -1,0 +1,18 @@
+
+<div class="home-container" fxLayout="column" fxLayoutAlign="start start">
+    <div fxLayout="row" fxLayoutAlign="center center" fxFill>
+        <h1 class="title">Choose Two Teams</h1>
+    </div>
+    <div class="options flags" fxLayout="row wrap">
+        <div fxFlex="20" fxLayoutAlign="center center" *ngFor="let country of allTeams">
+            <div class="teams-info" fxLayout="column" fxLayoutAlign="start center">
+                <img class="img" src={{country.flag_url}} alt={{country.name}}>
+                <mat-checkbox [disabled]="teamCounter === 2 && selectedTeamsID.indexOf(country.ID) === -1" (change)="updateState($event, country.ID)">{{country.name}}</mat-checkbox>
+            </div>
+        </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="end end" fxFill class="btn-submit">
+        <button [disabled]="disabled" mat-raised-button color="primary" (click)="Submit()">Next</button>
+    </div>
+</div>

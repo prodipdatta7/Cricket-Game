@@ -1,0 +1,31 @@
+.match-container {
+  margin: 50px 200px;
+  background-color: lightgray;
+  text-align: center;
+}
+
+.display-name {
+    margin: 0px;
+    padding: 0px;
+}
+
+.match-list {
+    width: 100%;
+}
+
+mat-card {
+    width: 75%;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-row:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+tr:hover {
+    background-color: lightgray;
+}

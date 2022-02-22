@@ -1,0 +1,25 @@
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: lightseagreen;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+}
+
+.title {
+    font-size: 25px;
+    width: auto;
+    height: 20px;
+}
+
+.items {
+    font-size: large;
+    text-align: center;
+}
+
+.main-container{
+    width: 100%;
+}

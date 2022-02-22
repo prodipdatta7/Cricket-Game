@@ -1,0 +1,50 @@
+<div class="match-container">
+    <div fxLayout="row" fxLayoutAlign="start center" style="max-height: 5px; position: relative;">
+        <h1 fxFlex="80" class="title" >All Matches</h1>
+        <div fxFlex="20" style="width: 100%; height: 100%; position: absolute; top: 5px; right: 5px;">
+            <label for="search-text">
+                Search Text:
+                <input type="text" class="form" [(ngModel)]="searchText" placeholder="Search" autofocus>
+            </label>
+            <table *ngIf="searchText" style="background-color: floralwhite; width: 100%; height:100%; position: absolute; top: 40px;  z-index: 20;">
+                <thead>
+                    <tr>
+                        <th>Team #1</th>
+                        <th>Team #2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let match of Matches | filter: searchText" (click)="showDetails(match)">
+                        <td>{{match.team1}}</td>
+                        <td>{{match.team2}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+        <table class="match-list" mat-table [dataSource]="matchRecords">
+            <ng-container matColumnDef="Team-1">
+                <th style="text-align: center; font-size: 20px;" mat-header-cell *matHeaderCellDef>Team #1</th>
+                <td style="font-weight: bold; font-size: 16px;" mat-cell *matCellDef="let element">{{element.winner}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef=" ">
+                <th style="text-align: center;  font-size: 20px;" mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element">vs</td>
+            </ng-container>
+            <ng-container matColumnDef="Team-2">
+                <th style="text-align: center;  font-size: 20px;" mat-header-cell *matHeaderCellDef>Team #2</th>
+                <td style="font-weight: bold; font-size: 16px;" mat-cell *matCellDef="let element">{{element.looser}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="Result">
+                <th style="text-align: center;  font-size: 20px;" mat-header-cell *matHeaderCellDef>Result</th>
+                <td style="font-weight: bold; font-size: 16px;" mat-cell *matCellDef="let element">{{element.Result}}
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr (click)="showDetails(row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>

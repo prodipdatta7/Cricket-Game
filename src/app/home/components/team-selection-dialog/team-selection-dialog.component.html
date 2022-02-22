@@ -1,0 +1,16 @@
+<div style="background: #C0BCBC; padding: 0" fxLayout="column" fxLayoutAlign="center center">
+    <div fxLayout="column" fxLayoutAlign="center center" fxFill>
+        <h3>Mark Your Own Team</h3>
+    </div>
+    <mat-radio-group class="radio-group" [(ngModel)]="favouriteTeam" fxLayout="row" fxLayoutAlign="space-around center" fxFill>
+        <div *ngFor="let country of selectedTeams" fxLayout="column" fxLayoutAlign="center center">
+            <img class="img" src={{country.flag_url}} alt={{country.name}}>
+            <mat-radio-button [value]="country.name">{{country.name}}</mat-radio-button>
+        </div>
+    </mat-radio-group>
+    <span>Your Team: {{favouriteTeam}}</span>
+    <div style="margin-top: 20px;">
+        <button mat-button (click)="onCancel()">Cancel</button>
+        <button [disabled]="favouriteTeam === ''" mat-raised-button color="primary" (click)="onSave()">Save</button>
+    </div>
+</div>
