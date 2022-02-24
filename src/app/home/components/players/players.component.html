@@ -1,1 +1,30 @@
-<p>players works!</p>
+<div class="match-info p-xy color" fxLayout="column" fxLayoutGap="20px">
+    <div fxLayout="column" fxLayoutAlign="center center" fxFill class="background" style="border-radius: 8px;">
+        <h2 class="match-info-text">Match Info Before Starting The Match</h2>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start center" class="background p-4" style="border-radius: 8px;" fxFill>
+        <h3 class="m-8">Your Team: <strong>{{myTeam}}</strong></h3>
+        <h3 class="m-8">Opponent Team: <strong>{{opponentTeam}}</strong></h3>
+        <h4 class="m-8">Over: <strong>{{over}}</strong></h4>
+        <div fxLayout="row" fxLayoutAlign="space-around start" fxFill>
+            <div fxLayout="column" fxLayoutAlign="start start">
+                <h3>{{myTeam}}</h3>
+                <div *ngFor="let player of myTeamPlayers">
+                    <span>{{player}}</span>
+                </div>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="start start">
+                <h3>{{opponentTeam}}</h3>
+                <div *ngFor="let player of opponentTeamPlayers">
+                    <span>{{player}}</span>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="12px">
+            <span>Now press the button below for the Toss.</span>
+        </div>
+    </div>
+    <div fxFill fxLayout="row" fxLayoutAlign="end start">
+        <button class="w-100" color="primary" mat-raised-button (click)="navigateToToss()">Toss</button>
+    </div>
+</div>

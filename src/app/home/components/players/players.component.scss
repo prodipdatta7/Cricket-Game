@@ -1,0 +1,32 @@
+.match-info {
+    background: url("/assets/images/background-image.png"), transparent !important;
+    object-fit: cover;
+    // background-repeat: repeat;
+    // width: 1300px;
+    min-height: 870px;
+}
+
+.p-40 {
+    padding: 40px;
+}
+
+.p-4 {
+    padding: 4px;
+}
+
+.match-info-text {
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 4px;;
+}
+.p-xy {
+    padding: 50px 200px;
+}
+
+.color {
+    color: rgb(255, 255, 255);
+}
+
+.background {
+    background-color: rgb(63, 81, 181);
+}

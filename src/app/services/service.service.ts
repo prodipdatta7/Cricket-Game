@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { FiveOversMatchService } from './five-overs-match.service';
+import { TenOversMatchService } from './ten-overs-match.service';
+import { TwoOversMatchService } from './two-overs-match.service';
 
 const allTeams = [
   {
@@ -70,9 +73,61 @@ export class ServiceService {
   allTeams: any = allTeams;
   playedMatches: any = [];
   currentMatchID: any;
+  myTeamID: number = -1; 
+  myTeamPlayers: any[] = [];
+  opponentTeamPlayers: any[] = [];
+  opponentTeamID: number = -1;
+  Over: number = 0;
+  serviceHolder: any ; 
 
-  constructor() {
-    console.log("In service: " + this.BattingTeamID, this.BowlingTeamID)
+  constructor(
+    private service2: TwoOversMatchService,
+    private service5: FiveOversMatchService,
+    private service10: TenOversMatchService
+    ) {
+    
+  }
+  prepareMatch(selectedTeams: any[], overs: number): void {
+    this.myTeamID = selectedTeams[0].ID ;
+    this.opponentTeamID = selectedTeams[1].ID ;
+    this.Over = overs;
+    this.getCurrentMatchID() ;
+    this.setServiceHolder();
+    this.teamsInQueue = selectedTeams;
+  }
+  getPlayerList(ID: number): any {
+    let players: any[] = [] ;
+    if(this.Over === 2){
+      let LIST = this.service2.getPlayerList(ID);
+      for(const value of Object.values(LIST)) {
+        players.push(value);
+      }
+    }
+    else if(this.Over === 5) {
+      let LIST = this.service5.getPlayerList(ID);
+      for(const value of Object.values(LIST)) {
+        players.push(value);
+      }
+    }
+    else if(this.Over === 10) {
+      let LIST = this.service10.getPlayerList(ID);
+      for(const value of Object.values(LIST)) {
+        players.push(value);
+      }
+    }
+    if(players.length > 2){
+      players.pop() ;
+      players.pop() ;
+    }
+    debugger ; 
+    return players;
+  }
+  setServiceHolder() {
+    if(this.Over === 2)this.serviceHolder = this.service2;
+    else if(this.Over === 5)this.serviceHolder = this.service5;
+    else this.serviceHolder = this.service10;
+    const team = this.serviceHolder.TeamPlayers;
+    debugger;
   }
   setPlayingTeam(teams: any) {
     console.log(teams)
@@ -120,3 +175,4 @@ export class ServiceService {
     console.log("bowling Team ID: " + this.BowlingTeamID);
   }
 }
+

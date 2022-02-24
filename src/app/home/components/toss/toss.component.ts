@@ -17,8 +17,14 @@ export class TossComponent implements OnInit {
   firstTeamsCall: string = "";
   tossValue: string = "";
   tossOptions: string[] = ['Head', 'Tail'];
+  ChoosedSide: string = "Not Decided Yet";
+  Sides: string[] = ['Head', 'Tail'];
+  StartingOptions: string[] = ['Bat', 'Bowl'];
+  ChoosedStartingOptions: string = "";
+  opponentsStartingOption: string = "" ;
+  tossButtonClicked: boolean = false;
 
-  constructor(private data: ServiceService, private router: Router) {
+  constructor(public data: ServiceService, private router: Router) {
     this.playingTeams = data.teamsInQueue;
     console.log(this.playingTeams, this.playingTeams.length)
   }
@@ -55,6 +61,20 @@ export class TossComponent implements OnInit {
     this.data.setBattingTeam(BattingTeamID);
     this.data.getCurrentMatchID();
     this.router.navigate(['play/', this.data.currentMatchID]);
+  }
+
+  CoinSpinned() {
+    this.tossButtonClicked = true ; 
+    const instanceOfTimeout = setTimeout(() =>{
+      let randomNumber = (1 + Math.floor(Math.random() * 10)) % 2 ; 
+      this.tossValue = this.Sides[randomNumber];
+      if(this.tossValue !== this.ChoosedSide)  {
+        let anotherRand = Math.floor(Math.random() * 10) % 2 ; 
+        this.opponentsStartingOption = this.StartingOptions[anotherRand];
+      }
+      this.tossButtonClicked = false ;
+      debugger;
+    }, 2000);
   }
 
   ngOnInit(): void {
