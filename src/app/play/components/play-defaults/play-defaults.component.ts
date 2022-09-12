@@ -12,24 +12,24 @@ import { SimpleData } from './../../../Interfaces/simple-data';
 export class PlayDefaultsComponent implements OnInit {
 
   playingTeams: any = [];
-  tossWinnerID: number = 0;
-  tossWinnerName: string = "";
-  battingTeamID: number = 0;
+  tossWinnerID = 0;
+  tossWinnerName = '';
+  battingTeamID = 0;
   playingOptions = ['bowl', 'bat'];
   possibleRun: number[] = [1, 2, 3, 4, 6];
-  tossWinnerBattingFirst: number = 0;
-  currentTotalRun: number = 0;
-  currentBallRun: number = 0;
-  totalBallPlayed: number = 0;
+  tossWinnerBattingFirst = 0;
+  currentTotalRun = 0;
+  currentBallRun = 0;
+  totalBallPlayed = 0;
   offSet = 0;
   today: number = Date.now();
   public currentMatchInfo: NewMatch;
   Balls: any = [];
-  firstInningsFinish: boolean = false;
-  secondInningsFinish: boolean = false;
-  battingTeamName: string = "";
-  bowlingTeamName: string = "";
-  disabled: boolean = false;
+  firstInningsFinish = false;
+  secondInningsFinish = false;
+  battingTeamName = '';
+  bowlingTeamName = '';
+  disabled = false;
 
   constructor(private service: ServiceService, private router: Router) {
     this.playingTeams = service.teamsInQueue;
@@ -39,8 +39,8 @@ export class PlayDefaultsComponent implements OnInit {
     this.tossWinnerBattingFirst = (this.battingTeamID == this.tossWinnerID) ? 1 : 0;
     this.battingTeamName = service.allTeams[service.BattingTeamID].name;
     this.bowlingTeamName = service.allTeams[service.BowlingTeamID].name;
-    console.log(this.playingTeams, this.tossWinnerID)
-    console.log(this.battingTeamName, this.bowlingTeamName, this.tossWinnerName)
+    console.log(this.playingTeams, this.tossWinnerID);
+    console.log(this.battingTeamName, this.bowlingTeamName, this.tossWinnerName);
     this.currentMatchInfo = {
       matchID: service.currentMatchID,
       tossWinner: this.tossWinnerName,
@@ -56,22 +56,23 @@ export class PlayDefaultsComponent implements OnInit {
       loosersInnings: [],
       totalRunsInFirstInnings: 0,
       totalRunsInSecondInnings: 0,
-      Result: "Match Drawn",
+      Result: 'Match Drawn',
       toDay: 0,
-    }
-    console.log(this.today)
+    };
+    console.log(this.today);
     service.showData();
   }
 
+  // tslint:disable-next-line:typedef
   IncreaseRun() {
-    let index = Math.floor(Math.random() * 10) % 5;
+    const index = Math.floor(Math.random() * 10) % 5;
     this.currentTotalRun += this.possibleRun[index];
     this.currentBallRun = this.possibleRun[index];
     ++this.totalBallPlayed;
-    let newBall = {
+    const newBall = {
       over: 0.1,
       run: this.currentBallRun,
-    }
+    };
     if (this.totalBallPlayed - this.offSet > 6) {
       newBall.over = (this.totalBallPlayed - this.offSet - 6) / 10;
       newBall.over += 1;
@@ -80,22 +81,22 @@ export class PlayDefaultsComponent implements OnInit {
       newBall.over = (this.totalBallPlayed - this.offSet) / 10;
     }
     this.Balls.push(newBall);
-    console.log(this.Balls)
+    console.log(this.Balls);
 
-    if (this.totalBallPlayed == 12) {
+    if (this.totalBallPlayed === 12) {
       this.currentMatchInfo.firstInnings = this.Balls;
       this.currentMatchInfo.totalRunsInFirstInnings = this.currentTotalRun;
       this.currentTotalRun = 0;
       this.Balls = [];
       this.firstInningsFinish = true;
       if (!this.offSet) {
-        let name = this.battingTeamName;
+        const name = this.battingTeamName;
         this.battingTeamName = this.bowlingTeamName;
         this.bowlingTeamName = name;
       }
       this.offSet = 12;
     }
-    if (this.totalBallPlayed == 24) {
+    if (this.totalBallPlayed === 24) {
       this.currentMatchInfo.totalRunsInSecondInnings = this.currentTotalRun;
       this.currentMatchInfo.secondInnings = this.Balls;
       if (this.currentMatchInfo.totalRunsInFirstInnings === this.currentMatchInfo.totalRunsInSecondInnings) {
@@ -140,10 +141,10 @@ export class PlayDefaultsComponent implements OnInit {
       this.currentTotalRun = 0;
       this.disabled = true;
       this.secondInningsFinish = true;
-      var matchRecords: NewMatch[] = [];
-      var shortMatchRecords: SimpleData[] = [];
-      var Records = localStorage.getItem('matchStory');
-      var shortRecords = localStorage.getItem('simpleData');
+      let matchRecords: NewMatch[] = [];
+      let shortMatchRecords: SimpleData[] = [];
+      const Records = localStorage.getItem('matchStory');
+      const shortRecords = localStorage.getItem('simpleData');
       if (Records) {
         matchRecords = JSON.parse(Records);
       }

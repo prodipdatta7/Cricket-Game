@@ -17,18 +17,18 @@
             <h4 class="display-name">Total run of {{bowlingTeamName}}: {{currentMatchInfo.totalRunsInFirstInnings}}</h4>
         </div>
         <h6 *ngIf="!firstInningsFinish || !secondInningsFinish">Total Run of {{battingTeamName}}: {{currentTotalRun}}</h6>
-        <button [disabled]="disabled" mat-raised-button color="primary" (click)="IncreaseRun()">Bowl</button>
+        <button (click)="IncreaseRun()" [disabled]="disabled" color="primary" mat-raised-button>Bowl</button>
     </div>
-    <div fxLayout="column" class="commentry" *ngIf="!firstInningsFinish || !secondInningsFinish">
+    <div *ngIf="!firstInningsFinish || !secondInningsFinish" class="commentry" fxLayout="column">
         <div>
             <h6 fxFlex="50"  style="text-align: center;">Over</h6>
             <h6 fxFlex="50"  style="text-align: center;">Run</h6>
         </div>
-        <div fxFlex="100" fxLayout="row" fxLayoutAlign="center start" *ngFor="let ball of Balls">
-            <div fxFlex="50" fxLayoutAlign="center start" class="tableBorder">
+        <div *ngFor="let ball of Balls" fxFlex="100" fxLayout="row" fxLayoutAlign="center start">
+            <div class="tableBorder" fxFlex="50" fxLayoutAlign="center start">
                 {{ball.over}}
             </div>
-            <div fxFlex="50" fxLayoutAlign="center start" class="tableBorder">
+            <div class="tableBorder" fxFlex="50" fxLayoutAlign="center start">
                 {{ball.run}}
             </div>
         </div>
@@ -43,7 +43,7 @@
             </div>
             <h3>Full Score</h3>
         </div>
-        <div fxLayout="column" class="commentry">
+        <div class="commentry" fxLayout="column">
             <div fxFlex="100" fxFlexAlign="center">
                 <h1>{{bowlingTeamName}}</h1>
             </div>
@@ -51,17 +51,17 @@
                 <h6 fxFlex="50" style="text-align: center;">Over</h6>
                 <h6 fxFlex="50" style="text-align: center;">Run</h6>
             </div>
-            <div fxFlex="100" fxLayout="row" fxLayoutAlign="center start"
-                *ngFor="let ball of currentMatchInfo.firstInnings">
-                <div fxFlex="50" fxLayoutAlign="center start" class="tableBorder">
+            <div *ngFor="let ball of currentMatchInfo.firstInnings" fxFlex="100" fxLayout="row"
+                fxLayoutAlign="center start">
+                <div class="tableBorder" fxFlex="50" fxLayoutAlign="center start">
                     {{ball.over}}
                 </div>
-                <div fxFlex="50" fxLayoutAlign="center start" class="tableBorder">
+                <div class="tableBorder" fxFlex="50" fxLayoutAlign="center start">
                     {{ball.run}}
                 </div>
             </div>
         </div>
-        <div fxLayout="column" class="commentry">
+        <div class="commentry" fxLayout="column">
             <div fxFlex="100" fxFlexAlign="center">
                 <h1>{{battingTeamName}}</h1>
             </div>
@@ -69,12 +69,12 @@
                 <h6 fxFlex="50" style="text-align: center;">Over</h6>
                 <h6 fxFlex="50" style="text-align: center;">Run</h6>
             </div>
-            <div fxFlex="100" fxLayout="row" fxLayoutAlign="center start"
-                *ngFor="let ball of currentMatchInfo.secondInnings">
-                <div fxFlex="50" fxLayoutAlign="center start" class="tableBorder">
+            <div *ngFor="let ball of currentMatchInfo.secondInnings" fxFlex="100" fxLayout="row"
+                fxLayoutAlign="center start">
+                <div class="tableBorder" fxFlex="50" fxLayoutAlign="center start">
                     {{ball.over}}
                 </div>
-                <div fxFlex="50" fxLayoutAlign="center start" class="tableBorder">
+                <div class="tableBorder" fxFlex="50" fxLayoutAlign="center start">
                     {{ball.run}}
                 </div>
             </div>
