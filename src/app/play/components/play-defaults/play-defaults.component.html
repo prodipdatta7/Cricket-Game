@@ -19,7 +19,7 @@
         <h6 *ngIf="!firstInningsFinish || !secondInningsFinish">Total Run of {{battingTeamName}}: {{currentTotalRun}}</h6>
         <button (click)="IncreaseRun()" [disabled]="disabled" color="primary" mat-raised-button>Bowl</button>
     </div>
-    <div *ngIf="!firstInningsFinish || !secondInningsFinish" class="commentry" fxLayout="column">
+    <div *ngIf="!firstInningsFinish || !secondInningsFinish" class="commentary" fxLayout="column">
         <div>
             <h6 fxFlex="50"  style="text-align: center;">Over</h6>
             <h6 fxFlex="50"  style="text-align: center;">Run</h6>
@@ -43,7 +43,7 @@
             </div>
             <h3>Full Score</h3>
         </div>
-        <div class="commentry" fxLayout="column">
+        <div class="commentary" fxLayout="column">
             <div fxFlex="100" fxFlexAlign="center">
                 <h1>{{bowlingTeamName}}</h1>
             </div>
@@ -61,7 +61,7 @@
                 </div>
             </div>
         </div>
-        <div class="commentry" fxLayout="column">
+        <div class="commentary" fxLayout="column">
             <div fxFlex="100" fxFlexAlign="center">
                 <h1>{{battingTeamName}}</h1>
             </div>
