@@ -1,10 +1,13 @@
 .home-container {
     margin: 50px 200px;
-    background-color: lightgray;
+    background-color: lightsteelblue;
     // text-align: center;
 }
+
 .title {
     text-align: center;
+    color: paleturquoise;
+    text-transform: uppercase;
 }
 
 .teams-info {
@@ -20,9 +23,9 @@
 // }
 
 .img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
+    width: 150px;
+    height: 100px;
+    //border-radius: 50%;
     object-fit: cover;
 }
 
@@ -30,4 +33,18 @@
     width: 92px;
     min-width: 92px;
     max-width: 92px;
+}
+
+.box {
+    width: 400px;
+}
+
+.highlight {
+    background-color: rgba(150, 147, 0, 0.5);
+}
+
+.header {
+    background-color: teal;
+    padding: 20px;
+    margin-bottom: 32px;
 }

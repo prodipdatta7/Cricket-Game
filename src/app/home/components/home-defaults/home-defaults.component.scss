@@ -1,6 +1,7 @@
 a {
     text-decoration: none;
 }
+
 .home-container {
     margin: 50px 200px;
     background-color: lightgray;
@@ -38,6 +39,14 @@ a {
     width: 1500px;
 }
 
+.btn-btn {
+    margin: 20px;
+    padding: 4px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
 .pie-chart {
     width: 200px !important;
     height: 200px !important;
@@ -63,6 +72,11 @@ a {
     border-radius: 4px;
     color: #fff;
     padding: 4px 8px 6px 8px;
+    margin: 20px;
+    //padding: 4px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 #rules {

@@ -1,18 +1,41 @@
 
 <div class="home-container" fxLayout="column" fxLayoutAlign="start start">
-    <div fxLayout="row" fxLayoutAlign="center center" fxFill>
+    <div fxLayout="row" fxLayoutAlign="center center" fxFill class="header">
         <h1 class="title">Choose Two Teams</h1>
     </div>
-    <div class="options flags" fxLayout="row wrap">
-        <div fxFlex="20" fxLayoutAlign="center center" *ngFor="let country of allTeams">
-            <div class="teams-info" fxLayout="column" fxLayoutAlign="start center">
-                <img class="img" src={{country.flag_url}} alt={{country.name}}>
-                <mat-checkbox [disabled]="teamCounter === 2 && selectedTeamsID.indexOf(country.ID) === -1" (change)="updateState($event, country.ID)">{{country.name}}</mat-checkbox>
-            </div>
-        </div>
+<!--    <div class="options flags" fxLayout="row wrap">-->
+<!--        <div fxFlex="20" fxLayoutAlign="center center" *ngFor="let country of allTeams">-->
+<!--            <div class="teams-info" fxLayout="column" fxLayoutAlign="start center">-->
+<!--                <img class="img" src={{country.flag_url}} alt={{country.name}}>-->
+<!--                <mat-checkbox [disabled]="teamCounter === 2 && selectedTeamsID.indexOf(country.ID) === -1" (change)="updateState($event, country.ID)">{{country.name}}</mat-checkbox>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px" fxFill>
+      <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="12px">
+        <ng-container *ngIf="allTeams && allTeams.length">
+          <ng-container *ngFor="let team of allTeams | slice: 0 : 5">
+            <mat-card fxLayoutGap="12px" class="box cursor-pointer" [ngClass]="{'highlight' : team.isSelected}" (click)="toggleChecked(team)">
+              <img class="img" src="{{team.flag_url}}" alt="{{team?.name}}">
+              <span>{{team?.name}}</span>
+            </mat-card>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="12px">
+        <ng-container *ngIf="allTeams && allTeams.length">
+          <ng-container *ngFor="let team of allTeams | slice: 5">
+            <mat-card fxLayoutGap="12px" class="box cursor-pointer" [ngClass]="{'highlight' : team.isSelected}" (click)="toggleChecked(team)">
+              <img class="img" src="{{team?.flag_url}}" alt="{{team?.name}}">
+              <span>{{team?.name}}</span>
+            </mat-card>
+          </ng-container>
+        </ng-container>
+      </div>
     </div>
 
-    <div fxLayout="row" fxLayoutAlign="end end" fxFill class="btn-submit">
-        <button [disabled]="disabled" mat-raised-button color="primary" (click)="Submit()">Next</button>
+    <div fxLayout="row" fxLayoutAlign="center center" fxFill class="btn-submit">
+        <button [disabled]="disabled" mat-raised-button color="primary" class="w-100 button" (click)="Submit()">Next</button>
     </div>
 </div>
