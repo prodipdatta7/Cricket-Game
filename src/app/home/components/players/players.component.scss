@@ -1,5 +1,5 @@
 .match-info {
-    background: url("/assets/images/background-image.png"), transparent !important;
+    //background: url("/assets/images/background-image.png"), transparent !important;
     object-fit: cover;
     // background-repeat: repeat;
     // width: 1300px;
@@ -28,5 +28,9 @@
 }
 
 .background {
-    background-color: rgb(63, 81, 181);
+    background-color: #515d9b;
+}
+
+.mid-content {
+    min-height: 660px !important;
 }

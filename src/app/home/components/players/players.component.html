@@ -2,7 +2,7 @@
     <div fxLayout="column" fxLayoutAlign="center center" fxFill class="background" style="border-radius: 8px;">
         <h2 class="match-info-text">Match Info Before Starting The Match</h2>
     </div>
-    <div fxLayout="column" fxLayoutAlign="start center" class="background p-4" style="border-radius: 8px;" fxFill>
+    <div fxLayout="column" fxLayoutAlign="start center" class="background mid-content p-4" style="border-radius: 8px;" fxFill>
         <h3 class="m-8">Your Team: <strong>{{myTeam}}</strong></h3>
         <h3 class="m-8">Opponent Team: <strong>{{opponentTeam}}</strong></h3>
         <h4 class="m-8">Over: <strong>{{over}}</strong></h4>
@@ -24,7 +24,7 @@
             <span>Now press the button below for the Toss.</span>
         </div>
     </div>
-    <div fxFill fxLayout="row" fxLayoutAlign="end start">
+    <div fxFill fxLayout="row" fxLayoutAlign="center center">
         <button class="w-100" color="primary" mat-raised-button (click)="navigateToToss()">Toss</button>
     </div>
 </div>

@@ -1,25 +1,51 @@
 
 a {
     text-decoration: none;
+    color: #ffffff;
 }
 
 a:hover {
-    background-color: lightseagreen;
-    color: rgba(0, 0, 0, 1);
+    background-color: rgba(150, 147, 0, 0.8);
+    color: #ffffff;
     //font-weight: bold;
 }
 
 .title {
     font-size: 25px;
     width: auto;
-    height: 20px;
+    height: 24px;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 60px;
+    color: #fffb38;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
 }
 
 .items {
     font-size: large;
     text-align: center;
+    font-family: Poppins, sans-serif;
+    width: 100%;
+    margin-top: 12px;
+    //border: 2px solid rgb(150, 147, 0);
 }
 
 .main-container{
     width: 100%;
+    //position: fixed;
+}
+
+.sidenav {
+    width: 300px;
+    background: #3F51B5;
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.example-container {
+    left: 0;
+    right: 0;
 }

@@ -1,8 +1,8 @@
-<div class="toss-container" fxLayout="column" fxLayoutAlign="start center" class="m-20">
-    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+<div class="toss-container" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="32px" class="m-20">
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
         <h4>The Coin have two sides, Head and Tail. Choose One:</h4>
         <div fxLayout="row" fxLayoutAlign="center center" style="padding: 2px;">
-            <mat-radio-group [(ngModel)]="ChoosedSide" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+            <mat-radio-group [(ngModel)]="ChooseSide" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
                 <div *ngFor="let side of Sides" style="padding-top: 4px;" fxLayout="column" fxLayoutAlign="center center">
                     <mat-radio-button [value]="side"><h4 style="padding-top: 8px;">{{side}}</h4></mat-radio-button>
                 </div>
@@ -11,15 +11,15 @@
         <!-- <button class="btn-top" mat-raised-button color="primary" (click)="diceRolling()">Roll the dice</button>
         <h2>{{playingTeams[0].name}} called {{firstTeamsCall}}</h2> -->
     </div>
-    <h5>Your Have Choosen: {{ChoosedSide}}</h5>
+    <h5>Your Have Chosen: {{ChooseSide}}</h5>
     <h6>Now Spin the Coin</h6>
-    <button [disabled]="ChoosedSide === 'Not Decided Yet'" mat-raised-button color="primary" (click)="CoinSpinned()">Spin</button>
+    <button [disabled]="ChooseSide === 'Not Decided Yet'" mat-raised-button color="primary" (click)="CoinSpinner()">Spin</button>
     <mat-spinner *ngIf="tossButtonClicked"></mat-spinner>
     <h5>The toss value is: {{tossValue}}</h5>
-    <div *ngIf="tossValue === ChoosedSide">
+    <div *ngIf="tossValue === ChooseSide">
         <h4>Congratulations! You have own the toss. Now Decide what to do first: </h4>
         <div fxLayout="row" fxLayoutAlign="center center" style="padding: 2px;">
-            <mat-radio-group [(ngModel)]="ChoosedStartingOptions" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+            <mat-radio-group [(ngModel)]="ChooseStartingOptions" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
                 <div *ngFor="let option of StartingOptions" style="padding-top: 4px;" fxLayout="column" fxLayoutAlign="center center">
                     <mat-radio-button [value]="option"><h4 style="padding-top: 8px;">{{option}}</h4></mat-radio-button>
                 </div>
@@ -27,10 +27,10 @@
         </div>
         
     </div>
-    <h3 *ngIf="ChoosedStartingOptions !== ''">So, You({{this.data.teamsInQueue[0].name}}) are gonna <strong>{{ChoosedStartingOptions}}</strong> first.</h3>
+    <h3 *ngIf="ChooseStartingOptions !== ''">So, You({{this.data.teamsInQueue[0].name}}) are gonna <strong>{{ChooseStartingOptions}}</strong> first.</h3>
     <span>tossValue: {{tossValue}}</span>
-    <div *ngIf="tossValue !== ChoosedSide && tossValue != ''">
-        <h4>Ops! {{this.data.teamsInQueue[1].name}} have own the toss and decided to {{opponentsStartingOption}}first.</h4>
+    <div *ngIf="tossValue !== ChooseSide && tossValue != ''">
+        <h4>Ops! {{this.data.teamsInQueue[1].name}} have own the toss and decided to {{opponentsStartingOption}} first.</h4>
     </div>
-    <button class="btn-bottom" [disabled]="ChoosedStartingOptions === '' && opponentsStartingOption === ''" mat-raised-button color="primary" (click)="Play()">Lets Play</button>
+    <button class="btn-bottom" [disabled]="ChooseStartingOptions === '' && opponentsStartingOption === ''" mat-raised-button color="primary" (click)="Play()">Lets Play</button>
 </div>

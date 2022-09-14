@@ -77,12 +77,12 @@ export interface simpleData {
   providedIn: 'root'
 })
 export class ServiceService {
-  teamsInQueue: any = [];
+  teamsInQueue: any[] = [];
   tossWinnerID = 0;
   BattingTeamID = 0;
   BowlingTeamID = 0;
   allTeams: any = allTeams;
-  playedMatches: any = [];
+  playedMatches: any[] = [];
   currentMatchID: any;
   myTeamID = -1 ;
   myTeamPlayers: any[] = [];

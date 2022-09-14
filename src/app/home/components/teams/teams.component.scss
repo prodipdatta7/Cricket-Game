@@ -1,5 +1,4 @@
 .home-container {
-    margin: 50px 200px;
     background-color: lightsteelblue;
     // text-align: center;
 }
@@ -47,4 +46,23 @@
     background-color: teal;
     padding: 20px;
     margin-bottom: 32px;
+}
+
+button {
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    font-family: Poppins, sans-serif;
+    line-height: 36px;
+}
+
+.button-div {
+    margin-top: 30px;
+    margin-bottom: 26px;
+}
+
+.team_name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }

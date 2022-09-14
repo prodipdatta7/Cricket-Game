@@ -9,19 +9,19 @@ import { ServiceService } from 'src/app/services/service.service';
 })
 export class HomeDefaultsComponent implements OnInit {
 
-  disabled: boolean = true;
-  teamCounter: number = 0;
+  disabled = true;
+  teamCounter = 0;
   allTeams: any = [];
   selectedTeamsID: number[] = [];
 
   constructor(private dataStore: ServiceService, private router: Router) {
     this.allTeams = dataStore.allTeams;
-    console.log(this.allTeams)
+    console.log(this.allTeams);
   }
 
-  updateState(event: any, ID: number) {
-    if (event.checked == true) {
-      if (this.teamCounter == 2) {
+  updateState(event: any, ID: number): void {
+    if (event.checked === true) {
+      if (this.teamCounter === 2) {
         alert('You can Select exactly 2 teams');
       }
       else {
@@ -34,14 +34,14 @@ export class HomeDefaultsComponent implements OnInit {
       this.selectedTeamsID.splice(this.selectedTeamsID.indexOf(ID), 1);
     }
     this.disabled = this.teamCounter !== 2;
-    console.log(this.teamCounter, ID)
+    console.log(this.teamCounter, ID);
   }
 
-  Submit() {
-    if (this.teamCounter > 2) alert('Select exactly 2 teams to play');
+  Submit(): void {
+    if (this.teamCounter > 2) { alert('Select exactly 2 teams to play'); }
     else {
       this.dataStore.setPlayingTeam(this.selectedTeamsID);
-      console.log(this.selectedTeamsID)
+      console.log(this.selectedTeamsID);
       this.router.navigate(['home', 'toss']);
     }
   }

@@ -1,9 +1,19 @@
-<mat-toolbar color="primary" class="main-container" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
-    <p class="title" fxFlexAlign="center center">Cricket Game</p>
-    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
-        <a mat-button routerLink="home" routerLinkActive="active" class="items">Home</a>
-        <a mat-button routerLink="home/teams" routerLinkActive="active" class="items">Start a Match</a>
-        <a mat-button routerLink="matches" routerLinkActive="active" class="items">Match History</a>
-    </div>
-</mat-toolbar>
-<router-outlet></router-outlet>
+
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" opened class="sidenav">
+        <p class="title" fxFlexAlign="center center">Cricket Game</p>
+        <div fxLayout="column" fxLayoutAlign="start center">
+            <hr>
+            <a mat-button routerLink="home" routerLinkActive="active" class="items">Home</a>
+            <hr>
+            <a mat-button routerLink="home/teams" routerLinkActive="active" class="items">Start a Match</a>
+            <hr>
+            <a mat-button routerLink="matches" routerLinkActive="active" class="items">Match History</a>
+            <hr>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
