@@ -154,15 +154,17 @@ export class ServiceService {
     this.BowlingTeamID = ID;
   }
   createGuid(): string {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
-      // tslint:disable-next-line:one-variable-per-declaration
-      let r: number, v: number;
-      // tslint:disable-next-line:no-bitwise
-      r = (Math.random() << 4) | 0;
-      // tslint:disable-next-line:no-bitwise
-      v = c === 'x' ? r : (r & 0x3 | 0x8);
-      return v.toString(16);
-    });
+      const match_info = this.teamsInQueue[0].name + '-vs-' + this.teamsInQueue[1].name + '-time:' + new Date().getMilliseconds();
+      return match_info;
+    // return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+    //   // tslint:disable-next-line:one-variable-per-declaration
+    //   let r: number, v: number;
+    //   // tslint:disable-next-line:no-bitwise
+    //   r = (Math.random() << 4) | 0;
+    //   // tslint:disable-next-line:no-bitwise
+    //   v = c === 'x' ? r : (r & 0x3 | 0x8);
+    //   return v.toString(16);
+    // });
   }
 
   getCurrentMatchID(): void {
