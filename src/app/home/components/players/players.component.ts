@@ -9,10 +9,10 @@ import { ServiceService } from 'src/app/services/service.service';
 })
 export class PlayersComponent implements OnInit {
 
-  myTeam: string = "" ;
-  opponentTeam: string = "" ;
-  over: number = 0
-  myTeamPlayers: string[] = [] ; 
+  myTeam = '' ;
+  opponentTeam = '' ;
+  over = 0;
+  myTeamPlayers: string[] = [] ;
   opponentTeamPlayers: string[] = [] ;
 
   constructor(
@@ -21,7 +21,7 @@ export class PlayersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(this.service.Over === 0){
+    if (this.service.Over === 0){
       this.router.navigate(['home/teams']);
     }
     this.myTeam = this.service.teamsInQueue[0].name;
@@ -29,11 +29,11 @@ export class PlayersComponent implements OnInit {
     this.over = this.service.Over ;
     this.myTeamPlayers = this.service.getPlayerList(this.service.teamsInQueue[0].ID);
     this.opponentTeamPlayers = this.service.getPlayerList(this.service.teamsInQueue[1].ID);
-    this.service.myTeamPlayers = this.myTeamPlayers ; 
+    this.service.myTeamPlayers = this.myTeamPlayers ;
     this.service.opponentTeamPlayers = this.opponentTeamPlayers;
   }
 
-  navigateToToss(){
+  navigateToToss(): void{
     this.router.navigate(['home/toss']) ;
   }
 

@@ -17,10 +17,10 @@ export class TossComponent implements OnInit {
     firstTeamsCall = '';
     tossValue = '';
     tossOptions: string[] = ['Head', 'Tail'];
-    ChooseSide = 'Not Decided Yet';
-    Sides: string[] = ['Head', 'Tail'];
+    MyChosenSide = 'Not Decided Yet';
+    CoinSides: string[] = ['Head', 'Tail'];
     StartingOptions: string[] = ['Bat', 'Bowl'];
-    ChooseStartingOptions = '';
+    MyStartingOption = '';
     opponentsStartingOption = '';
     tossButtonClicked = false;
 
@@ -28,20 +28,23 @@ export class TossComponent implements OnInit {
     }
 
     teamToBowl(): void {
-        if (this.ChooseStartingOptions !== '') {
-           if (this.ChooseStartingOptions === 'Bowl') {
-               this.bowlingTeamID = this.data.teamsInQueue[0].ID ;
-           }
-           else {
-               this.bowlingTeamID = this.data.teamsInQueue[1].ID ;
-           }
-        }
-        else {
-            if (this.opponentsStartingOption === 'Bowl') {
-                this.bowlingTeamID = this.data.teamsInQueue[1].ID ;
+        if (this.MyStartingOption !== '') {
+            this.data.tossWinnerID = this.data.teamsInQueue[0].ID;
+            if (this.MyStartingOption === 'Bowl') {
+                this.bowlingTeamID = this.data.teamsInQueue[0].ID;
+                this.data.choosenOption = 'Bowl';
+            } else {
+                this.bowlingTeamID = this.data.teamsInQueue[1].ID;
+                this.data.choosenOption = 'Bat';
             }
-            else {
-                this.bowlingTeamID = this.data.teamsInQueue[0].ID ;
+        } else {
+            this.data.tossWinnerID = this.data.teamsInQueue[0].ID;
+            if (this.opponentsStartingOption === 'Bowl') {
+                this.bowlingTeamID = this.data.teamsInQueue[1].ID;
+                this.data.choosenOption = 'Bowl';
+            } else {
+                this.bowlingTeamID = this.data.teamsInQueue[0].ID;
+                this.data.choosenOption = 'Bat';
             }
         }
         this.disabled = false;
@@ -84,13 +87,12 @@ export class TossComponent implements OnInit {
         this.tossButtonClicked = true;
         const instanceOfTimeout = setTimeout(() => {
             const randomNumber = (1 + Math.floor(Math.random() * 10)) % 2;
-            this.tossValue = this.Sides[randomNumber];
-            if (this.tossValue !== this.ChooseSide) {
+            this.tossValue = this.CoinSides[randomNumber];
+            if (this.tossValue !== this.MyChosenSide) {
                 const anotherRand = Math.floor(Math.random() * 10) % 2;
                 this.opponentsStartingOption = this.StartingOptions[anotherRand];
             }
             this.tossButtonClicked = false;
-            debugger;
         }, 2000);
     }
 

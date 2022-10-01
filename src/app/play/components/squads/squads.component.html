@@ -1,1 +1,27 @@
-<p>squads works!</p>
+<div class="squads">
+    <div  fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="12px">
+        <div>
+            <div class="sub-header">
+                <span>Match Info</span>
+            </div>
+            <div class="w-200" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="8px">
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                    <strong>Match</strong>
+                    <div>
+                        {{myTeam}} vs {{opponentTeam}}
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                    <strong>Date</strong>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                    <strong>Toss</strong>
+                    <div>
+                        {{tossWinner}}({{startingOption}})
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

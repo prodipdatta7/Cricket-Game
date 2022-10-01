@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { FiveOversMatchService } from './five-overs-match.service';
 import { TenOversMatchService } from './ten-overs-match.service';
 import { TwoOversMatchService } from './two-overs-match.service';
+import {BehaviorSubject} from "rxjs";
 
 const allTeams = [
   {
@@ -79,6 +80,7 @@ export interface simpleData {
 export class ServiceService {
   teamsInQueue: any[] = [];
   tossWinnerID = 0;
+  choosenOption = '';
   BattingTeamID = 0;
   BowlingTeamID = 0;
   allTeams: any = allTeams;
@@ -90,6 +92,7 @@ export class ServiceService {
   opponentTeamID = -1;
   Over = 0;
   serviceHolder: any ;
+  getMatchInfo: BehaviorSubject<any> = new BehaviorSubject(null);
 
   constructor(
     private service2: TwoOversMatchService,
